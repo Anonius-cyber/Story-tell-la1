@@ -1,84 +1,58 @@
-# Story-tell-la1
+# Insula Uitata
 
-Text Adventure (Story Tale) — laborator de programare orientat? pe obiecte.
+Joc de tip Text Adventure (Story Tale) - laborator de programare orientata pe obiecte.
 
-## Descrierea proiectului
+## Ce este proiectul
 
-„Insula Uitat?” este un joc de tip **text adventure**: juc?torul controleaz?
-un naufragiat care se treze?te pe o insul? necunoscut? ?i trebuie s?
-exploreze, s? colecteze obiecte ?i s? ia decizii pentru a g?si o cale de
-salvare (sau o comoar? ascuns?).
+Insula Uitata este un joc text in care controlezi un naufragiat care se trezeste pe o insula necunoscuta. Trebuie sa exploreze insula, sa gaseasca obiecte si sa ia decizii ca sa gaseasca o cale de salvare (sau sa gaseasca o comoara ascunsa).
 
-Jocul ruleaz? ?n consol?. La fiecare pas, juc?torul:
-1. cite?te descrierea scenei curente;
-2. alege una dintre op?iunile numerotate afi?ate, sau folose?te o comand?
-   special?;
-3. motorul de joc actualizeaz? starea (inventar, flag-uri, scena curent?)
-   ?n func?ie de alegere.
+Jocul ruleaza in consola. La fiecare pas:
+1. citesti descrierea scenei in care esti
+2. alegi una din optiunile numerotate, sau scrii o comanda speciala
+3. jocul actualizeaza starea (inventar, flag-uri, scena curenta) in functie de alegerea ta
 
-### Reguli de joc / comenzi disponibile
+## Comenzi disponibile
 
-| Comand?            | Efect                                             |
-|--------------------|----------------------------------------------------|
-| `1`, `2`, `3`, ...  | alege op?iunea corespunz?toare din scena curent?    |
-| `inv`               | afi?eaz? inventarul curent                          |
-| `help`              | afi?eaz? lista de comenzi                           |
-| `quit`              | iese din joc                                        |
+- 1, 2, 3... - alegi optiunea cu numarul respectiv din scena curenta
+- inv - iti arata inventarul curent
+- help - iti arata lista de comenzi
+- quit - iesi din joc
 
-Unele alegeri necesit? un obiect anume din inventar (ex: o oglind? de
-semnalizare pentru a chema o nav?), iar altele ofer? un obiect nou. Jocul
-se termin? c?nd juc?torul ajunge ?ntr-o scen? de final — exist? mai multe
-finaluri posibile (salvare, comoar? ascuns? etc.).
+Unele alegeri au nevoie de un obiect anume din inventar (de exemplu o oglinda de semnalizare ca sa chemi o nava), iar altele iti dau un obiect nou. Jocul se termina cand ajungi intr-o scena de final. Sunt mai multe finaluri posibile (salvare, comoara ascunsa etc).
 
-## Structuri de date ?i descrierea lor
+## Structuri de date folosite
 
-Toate structurile de date de baz? sunt definite ?n `GameTypes.hpp`:
+Toate structurile de date sunt in fisierul GameTypes.hpp:
 
-- **`Item`** — un obiect din poveste (`id`, `name`, `description`).
-- **`Choice`** — o op?iune disponibil? ?ntr-o scen?: textul afi?at,
-  scena spre care duce (`targetSceneId`), un obiect necesar op?ional
-  (`requiredItemId`), un obiect oferit op?ional (`givesItemId`) ?i un
-  flag boolean care poate fi setat (`setFlag`).
-- **`Scene`** — un nod din graful pove?tii: `id`, `title`, `description`,
-  lista de `Choice` disponibile ?i un indicator `isEnding` (dac? este
-  o scen? final?).
-- **`GameState`** — starea curent? a partidei: scena curent?
-  (`currentSceneId`), inventarul juc?torului (`inventory`), flag-uri
-  boolene pentru decizii/evenimente (`flags`), num?rul de ture jucate
-  (`turnCount`) ?i dac? jocul mai ruleaz? (`isRunning`).
+- Item - un obiect din joc (id, name, description)
+- Choice - o optiune dintr-o scena: textul care se afiseaza, scena spre care duce (targetSceneId), un obiect necesar optional (requiredItemId), un obiect pe care il primesti optional (givesItemId) si un flag boolean care poate fi setat (setFlag)
+- Scene - o scena din poveste: id, title, description, lista de Choice si un flag isEnding care spune daca e o scena finala
+- GameState - starea curenta a jocului: scena curenta (currentSceneId), inventarul jucatorului (inventory), flag-urile boolene pentru diverse decizii (flags), numarul de ture (turnCount) si daca jocul mai ruleaza (isRunning)
 
-Povestea ?n sine este reprezentat? ca un **graf orientat**: fiecare `Scene`
-este un nod, iar fiecare `Choice` este o muchie c?tre alt? scen?
-(`targetSceneId`).
+Povestea e practic un graf: fiecare Scene e un nod, iar fiecare Choice e o muchie catre alta scena.
 
-## Arhitectura codului
+## Fisierele proiectului
 
-| Fi?ier             | Rol                                                                |
-|---------------------|----------------------------------------------------------------------|
-| `GameTypes.hpp`     | define?te structurile de date de baz? (`Item`, `Choice`, `Scene`, `GameState`) |
-| `GameEngine.hpp`    | **motorul de joc**: de?ine povestea ?i starea, ruleaz? bucla principal? |
-| `Renderer.hpp`      | **desenatorul**: afi?eaz? scenele, inventarul ?i mesajele ?n consol?  |
-| `Listener.hpp`      | **ascult?torul**: cite?te ?i interpreteaz? input-ul juc?torului       |
-| `main.cpp`          | punctul de intrare, porne?te `GameEngine`                             |
+- GameTypes.hpp - structurile de date de baza (Item, Choice, Scene, GameState)
+- GameEngine.hpp - motorul de joc, tine povestea si starea, ruleaza bucla principala
+- Renderer.hpp - deseneaza scenele, inventarul si mesajele in consola
+- Listener.hpp - citeste si interpreteaza ce scrie jucatorul
+- main.cpp - punctul de pornire al jocului
+- CMakeLists.txt - fisierul de configurare pentru compilare cu CMake
 
-`GameEngine` folose?te `Renderer` pentru afi?are ?i `Listener` pentru a
-citi alegerile juc?torului, dar `Renderer` ?i `Listener` nu ?tiu nimic
-unul despre cel?lalt — comunic? doar prin `GameEngine`.
+GameEngine foloseste Renderer ca sa afiseze lucruri si Listener ca sa citeasca alegerile jucatorului. Renderer si Listener nu stiu unul de celalalt, comunica doar prin GameEngine.
 
-## Compilare ?i rulare
+## Cum compilez si rulez
 
-```bash
 g++ -std=c++17 -Wall -o insula_uitata main.cpp
 ./insula_uitata
-```
 
-## Extindere
+sau in Visual Studio, cu CMakeLists.txt, direct din Select Startup Item.
 
-Povestea este momentan hardcodat? ?n `GameEngine::buildStory()`. Pentru
-un laborator ulterior, aceasta poate fi mutat? ?ntr-un fi?ier extern
-(JSON/text), f?r? s? fie nevoie de modificarea `Renderer`-ului sau a
-`Listener`-ului.
+## Ce as putea adauga mai tarziu
+
+Povestea e hardcodata acum in GameEngine::buildStory(). O idee ar fi sa o mut intr-un fisier extern (json sau text), ca sa pot schimba povestea fara sa umblu la Renderer sau Listener.
 
 ## Autor
 
-Proiect realizat ?n cadrul laboratorului de Programare Orientat? pe Obiecte.
+Anonius-cyber
