@@ -5,6 +5,7 @@
 #include <unordered_map>
 #include <memory>
 
+
 namespace TextAdventure {
 
     struct Choice {
@@ -30,7 +31,7 @@ namespace TextAdventure {
         void processInput(int choiceIndex);
 
         bool isRunning() const { return m_isRunning; }
-        const StoryNode& getCurrentNode() const { return m_nodes.at(m_currentNodeId); }
+        const StoryNode& getCurrentNode() const { return m_nodes.at(m_currentNodeId);}
 
     private:
         std::unordered_map<std::string, StoryNode> m_nodes;

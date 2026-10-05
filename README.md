@@ -18,6 +18,7 @@ Jucătorul explorează o poveste ramificată luând decizii la fiecare pas. Fiec
 
 
 
+
 ## Metoda de construcție (Build cu CMake și Visual Studio)
 
 Pentru a compila și rula proiectul folosind CMake din linia de comandă (Developer Command Prompt for Visual Studio):

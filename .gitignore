@@ -1,4 +1,20 @@
+# Visual Studio / MSBuild
 .vs/
 x64/
 Debug/
 Release/
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.suo
+*.user
+*.filters
+*.vcxproj
+
+# CMake build folder
+build/
+CMakeCache.txt
+CMakeFiles/
+Testing/
+*.cmake

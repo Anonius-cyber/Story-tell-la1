@@ -8,7 +8,7 @@ int main() {
     TextAdventure::Renderer renderer;
     TextAdventure::Listener listener;
 
-    std::cout << "Story Tale Game Initialized successfully!\n";
+    std::cout << "Story Tale Game Initialized Successfully!\n";
 
     return 0;
 }

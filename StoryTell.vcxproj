@@ -27,6 +27,12 @@
     <ClInclude Include="Listener.hpp" />
     <ClInclude Include="Renderer.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="StoryTell.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
