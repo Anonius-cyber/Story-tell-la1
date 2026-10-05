@@ -15,3 +15,18 @@ Jucătorul explorează o poveste ramificată luând decizii la fiecare pas. Fiec
 * **Engine**: Clasa principală a motorului de joc, responsabilă pentru gestionarea graficului de scene/noduri, starea curentă și logica de tranziție.
 * **Renderer**: Clasa responsabilă pentru afișarea textului în consolă și curățarea ecranului.
 * **Listener**: Clasa ce preia și validează introducerea de date de la tastatură de către utilizator.
+
+
+
+## Metoda de construcție (Build cu CMake și Visual Studio)
+
+Pentru a compila și rula proiectul folosind CMake din linia de comandă (Developer Command Prompt for Visual Studio):
+
+1. Deschide **Developer Command Prompt for Visual Studio**.
+2. Navighează în folderul principal al proiectului și creează un director pentru build:
+   ```cmd
+   mkdir build
+   cd build
+   cmake ..
+   cmake --build . --config Release
+   Release\StoryTale.exe

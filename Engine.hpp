@@ -21,7 +21,7 @@ namespace TextAdventure {
 
     class Engine {
     public:
-        Engine();
+        Engine() = default;
         ~Engine() = default;
 
         void initialize();
