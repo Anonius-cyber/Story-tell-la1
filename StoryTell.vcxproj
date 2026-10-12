@@ -20,12 +20,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="prompts_lab01.md" />
+    <None Include="prompts_lab02.md" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.hpp" />
     <ClInclude Include="Listener.hpp" />
     <ClInclude Include="Renderer.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Listener.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="StoryTell.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>

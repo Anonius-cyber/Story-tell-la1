@@ -17,6 +17,7 @@
   <ItemGroup>
     <None Include="README.md" />
     <None Include="prompts_lab01.md" />
+    <None Include="prompts_lab02.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.hpp">
@@ -28,5 +29,22 @@
     <ClInclude Include="Listener.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="StoryTell.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Listener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
 </Project>
