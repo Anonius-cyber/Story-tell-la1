@@ -15,3 +15,20 @@ Jucătorul explorează o poveste ramificată luând decizii la fiecare pas. Fiec
 * **Engine**: Clasa principală a motorului de joc, responsabilă pentru gestionarea graficului de scene/noduri, starea curentă și logica de tranziție.
 * **Renderer**: Clasa responsabilă pentru afișarea textului în consolă și curățarea ecranului.
 * **Listener**: Clasa ce preia și validează introducerea de date de la tastatură de către utilizator.
+
+
+
+## CMAKE Using 
+
+cd ..
+
+mkdir build
+
+cd build
+
+cmake -A x64 ..
+
+cmake --build . --config Release
+
+Release\StoryTale.exe
+
